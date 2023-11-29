@@ -5,6 +5,7 @@ import java.util.List;
 public class Aluno {
     private String cpf;
     private String nome;
+    private List<Matricula> matriculas;
 
     public Aluno(String cpf, String nome) {
         this.cpf = cpf;
@@ -20,11 +21,13 @@ public class Aluno {
     }
 
     public List<Matricula> getMatriculas() {
-        return getMatriculas();
+        return this.matriculas;
     }
 
     protected void adicionaMatricula(Matricula m) {
-        getMatriculas().add(m);
+        if (!this.matriculas.contains(m)) {
+            this.matriculas.add(m);
+        }
     }
 
 }

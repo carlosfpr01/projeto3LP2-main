@@ -4,6 +4,7 @@ package projeto3;
 public class NotaDisciplina {
     private float nota;
     private Situacao situacao;
+    private AnoSemestre anoSemestre;
 
     protected NotaDisciplina(float n, Disciplina d, Situacao s) {
         this.nota = n;
@@ -27,11 +28,15 @@ public class NotaDisciplina {
     }
 
     public AnoSemestre getAnoSemestre() {
-        return this.getAnoSemestre();
+        return this.anoSemestre;
     }
-
+    
     protected void setAnoSemestre(AnoSemestre as) {
-        this.setAnoSemestre(as);
+        if(as == null) {
+            throw new RuntimeException("AnoSemestre não pode ser nulo");
+        }else{
+            this.anoSemestre = as;
+        }
     }
 
     protected void setDisciplina(Disciplina d) {

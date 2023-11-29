@@ -23,18 +23,19 @@ public class AnoSemestre {
     }
 
     public Matricula getMatricula() {
-        return this.getMatricula();
+        return this.matricula;
     }
 
     public NotaDisciplina registraNotaDisciplina(float n, Disciplina d, Situacao s){
-        NotaDisciplina notaD = new NotaDisciplina(n, d, s);
-        notaD.setAnoSemestre(this);
-        this.notas.add(notaD);
-        return notaD;
+        NotaDisciplina nd = new NotaDisciplina(n, d, s);
+        if (!this.notas.contains(nd)) {
+            this.notas.add(nd);
+        }
+        return nd;
     }
 
     public List<NotaDisciplina> listNotaDisciplina(){
-        return this.listNotaDisciplina();
+        return this.notas;
     }
 
     protected void setMatricula(Matricula m) {

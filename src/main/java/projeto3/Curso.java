@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Curso {
     private String nome;
+    private List<Disciplina> disciplinas;
+    private List<Matricula> matriculas;
 
     public Curso(String n) {
         this.nome = n;
@@ -13,19 +15,23 @@ public class Curso {
         return nome;
     }
     
-    public List<Disciplina> getDisciplina() {
-        return this.getDisciplina();
+    public List<Disciplina> getDisciplinas() {
+        return this.disciplinas;
     }
 
     public List<Matricula> getMatriculas() {
-        return this.getMatriculas();
+        return this.matriculas;
     }
 
     public void incluiDisciplina(Disciplina d) {
-       new Disciplina(d.getCodigo(), d.getNome(), d.getCargaHoraria());
+        if (!this.disciplinas.contains(d)) {
+            this.disciplinas.add(d);
+        }
     }
 
     public void incluiMatricula(Matricula m) {
-        this.getMatriculas().add(m);
+        if (!this.matriculas.contains(m)) {
+            this.matriculas.add(m);
+        }
     }
 }

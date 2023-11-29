@@ -9,6 +9,7 @@ public class Matricula {
     private int semestre;
     private Aluno aluno;
     private Curso curso;
+    private List<AnoSemestre> anoSemestres;
 
     public Matricula(String m, int ano, int sem, Aluno a, Curso c) {
         this.matricula = m;
@@ -39,11 +40,14 @@ public class Matricula {
     }
 
     public List<AnoSemestre> listAnoSemestres() {
-        return this.listAnoSemestres();
+        return this.anoSemestres;
     }
 
     public void registraAnoSemestre(int ano, int sem) {
-        new AnoSemestre(ano, sem, this);
+        AnoSemestre as = new AnoSemestre(ano, sem);
+        if (!this.anoSemestres.contains(as)) {
+            this.anoSemestres.add(as);
+        }
     }
 
     protected void setAluno(Aluno a) {
